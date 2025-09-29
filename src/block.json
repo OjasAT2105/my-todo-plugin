@@ -20,6 +20,16 @@
   "viewScriptModule": "file:./view.js",
   "attributes": {
     "blockId": { "type": "string" },
-    "todos": { "type": "array", "default": [] }
+    "lists": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": { "type": "string" },
+          "done": { "type": "boolean" }
+        }
+      }
+    }
   }
 }
