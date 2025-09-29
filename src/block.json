@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/my-todo-plugin",
+  "version": "0.1.0",
+  "title": "My Todo Plugin",
+  "category": "widgets",
+  "icon": "media-interactive",
+  "description": "An interactive block with the Interactivity API.",
+  "example": {},
+  "supports": {
+    "interactivity": true,
+    "html": false
+  },
+  "textdomain": "my-todo-plugin",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScriptModule": "file:./view.js",
+  "attributes": {
+    "blockId": { "type": "string" },
+    "todos": { "type": "array", "default": [] }
+  }
+}
