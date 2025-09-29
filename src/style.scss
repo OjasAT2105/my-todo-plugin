@@ -6,22 +6,83 @@
  */
 
 .wp-block-create-block-my-todo-plugin {
-	font-size: 1em;
-	background: #ffff001a;
-	padding: 1em;
+  font-size: 1em;
+  background: #ffff001a;
+  padding: 1em;
 
-	&.dark-theme {
-		background: #333;
-		color: #fff;
+  &.dark-theme {
+    background: #333;
+    color: #fff;
 
-		button {
-			background: #555;
-			color: #fff;
-			border: 1px solid #777;
-		}
+    button {
+      background: #555;
+      color: #fff;
+      border: 1px solid #777;
+    }
 
-		p {
-			color: #ddd;
-		}
-	}
+    p {
+      color: #ddd;
+    }
+  }
+
+  .todo-controls,
+  .todo-add,
+  .todo-global-search {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px;
+  }
+
+  .todo-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 4px 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .todo-list li label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .todo-list li span {
+    flex: 1;
+  }
+
+  .is-done {
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+
+  .is-hidden { display: none; }
+
+  .todo-success {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: #e7f9ed;
+    color: #126b37;
+    border: 1px solid #b7e2c6;
+    border-radius: 6px;
+    display: none;
+  }
+  .todo-success.visible { display: block; }
+
+  /* pulse animation when an item toggles */
+  @keyframes todoPulse {
+    0% { background-color: rgba(18, 107, 55, 0.12); transform: scale(1.01); }
+    100% { background-color: transparent; transform: scale(1); }
+  }
+  .todo-list li.just-toggled {
+    animation: todoPulse 300ms ease-out 1;
+  }
 }
